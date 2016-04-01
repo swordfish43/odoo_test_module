@@ -1,0 +1,75 @@
+<openerp>
+	<data>
+        <record id="test_module_students_form" model="ir.ui.view">
+            <field name="name">test_module.form</field>
+            <field name="model">test_module.student</field>
+            <field name="arch" type="xml">
+                <form string="tree_string">
+                    <sheet>
+                    	<group>
+                            <field name="name"/>
+                            <field name="lastname"/>
+                            <field name="group" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="test_module_students_tree" model="ir.ui.view">
+            <field name="name">test_module.tree</field>
+            <field name="model">test_module.student</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="name"/>
+                    <field name="lastname"/>
+                    <field name="group"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="test_module_groups_form" model="ir.ui.view">
+            <field name="name">test_module.form</field>
+            <field name="model">test_module.group</field>
+            <field name="arch" type="xml">
+                <form string="tree_string">
+                    <sheet>
+                    	<group>
+                            <field name="group_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="test_module_groups_tree" model="ir.ui.view">
+            <field name="name">test_module.tree</field>
+            <field name="model">test_module.group</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="group_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="test_module_action_student" model="ir.actions.act_window">
+            <field name="name">test_module</field>
+            <field name="res_model">test_module.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="test_module_action_group" model="ir.actions.act_window">
+            <field name="name">test_module</field>
+            <field name="res_model">test_module.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="master_root" name="Students and Groups"/>
+        <menuitem id="data_holder" name="Students and Groups" parent="master_root"/>
+        <menuitem id="test_module_menu_students" name="Students" action="test_module_action_student" parent="data_holder"/>
+        <menuitem id="test_module_menu_groups" name="Groups" action="test_module_action_group" parent="data_holder"/>
+
+	</data>
+</openerp>
